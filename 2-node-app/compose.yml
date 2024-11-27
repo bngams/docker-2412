@@ -1,0 +1,17 @@
+# Ce fichier remplace ces commandes:
+# docker build -t my-node-app -f ops/docker/Dockerfile .
+# docker run -p 8080:80 --name=app
+
+
+# liste des containers
+services:
+  myapp:
+    container_name: node-app
+    hostname: node-app
+    image: my-node-app
+    build:
+      context: .
+      dockerfile: ops/docker/Dockerfile
+    ports:
+      - 8282:80
+      # -

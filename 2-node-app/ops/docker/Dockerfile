@@ -1,9 +1,13 @@
-FROM ...
+FROM node:current-slim
 
-COPY . .
+WORKDIR /app
 
-RUN npm i
+COPY package.json . 
 
-CMD ["npm", "run", "start"]
+RUN npm install
+
+COPY src/* src/
+
+CMD ["node", "src/index.js"]
 
 
